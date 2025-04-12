@@ -8,7 +8,7 @@ class MeatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final meatState = context.read<MeatState>();
+    final meatState = context.watch<MeatState>();
     final meatList = meatState.meatList;
 
     return Scaffold(
@@ -23,7 +23,7 @@ class MeatScreen extends StatelessWidget {
           final meat = meatList[index];
           return MeatCard(
             meatName: meat.name,
-            meatId: meat.name,
+            meatId: meat.id,
             fridge: meat.fridgeId,
             expirationDays: meatState.calcDaysToExpire(
               meat.createdAt,
